@@ -40,7 +40,7 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📸 Demo
 
-- [x] (screenshots/winning_screenshot.png)
+![Pytest Results](screenshots/pytest_results.png)
 
 ## 🚀 Stretch Features
 
