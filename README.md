@@ -28,8 +28,8 @@ It wrote the code, ran away, and now the game is unplayable.
 - [x] **Game's purpose:** A number guessing game built with Streamlit where the player picks a difficulty, gets a range, and tries to guess the secret number within a limited number of attempts. Hints guide you higher or lower after each guess and a score is tracked throughout.
 
 - [x] **Bugs found:**
-  1. The difficulty ranges for Normal and Hard were swapped — Normal was returning 1–100 and Hard was returning 1–50, when it should be the other way around.
-  2. The hint messages in `check_guess` were swapped — guessing too high told you to go higher, and guessing too low told you to go lower.
+  1. The difficulty ranges for Normal and Hard were swapped, Normal was returning 1-100 and Hard was returning 1-50, when it should be the other way around.
+  2. The hint messages in `check_guess` were swapped, guessing too high told you to go higher, and guessing too low told you to go lower.
   3. In `app.py`, on even-numbered attempts the secret was cast to a string, causing string-based comparison instead of numeric, which made hints appear random and inconsistent.
 
 - [x] **Fixes applied:**

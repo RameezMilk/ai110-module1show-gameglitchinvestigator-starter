@@ -57,8 +57,16 @@ AI helped my design a comprehensive suite of tests, understanding isn't really n
 ## 4. What did you learn about Streamlit and state?
 
 - In your own words, explain why the secret number kept changing in the original app.
+
+Every time you clicked Submit, Streamlit re-ran the entire script from top to bottom, which called `random.randint` again and generated a new secret number on every interaction.
+
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
+
+Every button click re-executes the whole Python file. Session state is basically a dictionary that persists across those reruns, so anything you store in it survives instead of getting reset.
+
 - What change did you make that finally gave the game a stable secret number?
+
+Wrapped the secret generation in `if "secret" not in st.session_state`, so it only runs once and the value persists for the rest of the game.
 
 ---
 
