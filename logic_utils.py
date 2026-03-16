@@ -36,6 +36,13 @@ def parse_guess(raw: str):
     return True, value, None
 
 
+# Bug: The hint messages for "Too High" and "Too Low" were swapped. When the guess was too
+# high, the message said "Go HIGHER!" and when too low it said "Go LOWER!", which is the
+# opposite of correct. Additionally, app.py was casting the secret to a string on even-numbered
+# attempts, causing string comparison instead of numeric, producing inconsistent results.
+# Fix: Swapped the messages so "Too High" returns "Go LOWER!" and "Too Low" returns "Go HIGHER!".
+# Removed the string-cast logic from app.py so the secret is always passed as an int.
+# Author: Rameez Malik + Claude Code
 def check_guess(guess, secret):
     """
     Compare guess to secret and return (outcome, message).
@@ -47,16 +54,16 @@ def check_guess(guess, secret):
 
     try:
         if guess > secret:
-            return "Too High", "📈 Go HIGHER!"
+            return "Too High", "📉 Go LOWER!"
         else:
-            return "Too Low", "📉 Go LOWER!"
+            return "Too Low", "📈 Go HIGHER!"
     except TypeError:
         g = str(guess)
         if g == secret:
             return "Win", "🎉 Correct!"
         if g > secret:
-            return "Too High", "📈 Go HIGHER!"
-        return "Too Low", "📉 Go LOWER!"
+            return "Too High", "📉 Go LOWER!"
+        return "Too Low", "📈 Go HIGHER!"
 
 
 def update_score(current_score: int, outcome: str, attempt_number: int):
